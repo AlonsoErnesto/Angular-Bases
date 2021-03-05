@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-
-interface Persona{
-  name:string,
-  poder: number,
-}
-
+import { Persona } from '../interfaces/dbz.interface';
+import { DBZService } from '../services/dbz.service';
 
 
 @Component({
@@ -14,37 +10,32 @@ interface Persona{
 })
 export class MainPageComponent   {
 
-  personajes:Persona[]= [
-    {
-      name:"MisterPOPO",
-      poder:23123,
-    },
-    {
-      name:"Vegettea",
-      poder:12000,
-    },
-    {
-      name:"Bulma",
-      poder:123
-    }
-  ]
-
-  nuevo:Persona = {
+   nuevo:Persona = {
     name:"",
     poder:0,
   }
+  
+  
+ 
+  constructor(private listPersonajes:DBZService){
 
-  agregar(){
-    if(this.nuevo.name.trim().length === 0 ){return ;}
-    else{
+  // get personajes():Persona[]{
+  //   return this.listPersonajes.personajes;
+  // }
+
+  // agregarNuevoPeronaje(paraams:any){
+  
       
-      this.personajes.push(this.nuevo);
-      this.nuevo = { name : "",poder:0}
+  //     this.personajes.push(paraams);
+  //     this.nuevo = { name : "",poder:0}
+  //     // se detiene hasta aqui la compilacion
+  //     // debugger;
       
-    }
-    console.log(this.nuevo)
+  //   console.log(paraams)
+  // }
+
+
   }
-
   // cambiarNombre(event:any){
   //   console.log(event.target.value)
   // }
